@@ -63,16 +63,16 @@ function FAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-purple-50 to-white">
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/10 to-white">
         <div className="container-x text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Find answers to common questions about Employee Zen. Can&apos;t find what you&apos;re looking for?{" "}
-            <Link to="/contact" className="text-purple-600 font-semibold hover:text-purple-700">
+            <Link to="/contact" className="text-primary font-semibold hover:text-primary/80">
               Contact us
             </Link>
           </p>
@@ -80,25 +80,25 @@ function FAQ() {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-x max-w-3xl">
           <div className="space-y-4">
             {faqs.map((faq) => (
-              <div key={faq.id} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition">
+              <div key={faq.id} className="border border-border200 rounded-lg overflow-hidden hover:shadow-md transition">
                 <button
                   onClick={() => toggleItem(faq.id)}
-                  className="w-full flex items-center justify-between p-6 bg-white hover:bg-gray-50 transition text-left"
+                  className="w-full flex items-center justify-between p-6 bg-background hover:bg-gray-50 transition text-left"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900">{faq.question}</h3>
+                  <h3 className="text-lg font-semibold text-foreground">{faq.question}</h3>
                   <ChevronDown
-                    className={`h-5 w-5 text-gray-600 transition-transform ${
+                    className={`h-5 w-5 text-muted-foreground transition-transform ${
                       openItems.includes(faq.id) ? "transform rotate-180" : ""
                     }`}
                   />
                 </button>
                 {openItems.includes(faq.id) && (
-                  <div className="border-t border-gray-200 px-6 py-4 bg-gray-50">
-                    <p className="text-gray-700">{faq.answer}</p>
+                  <div className="border-t border-border200 px-6 py-4 bg-gray-50">
+                    <p className="text-muted-foreground">{faq.answer}</p>
                   </div>
                 )}
               </div>
@@ -110,18 +110,18 @@ function FAQ() {
       {/* Still have questions */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container-x text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Still have questions?</h2>
-          <p className="text-xl text-gray-600 mb-8">Our team is here to help.</p>
+          <h2 className="text-3xl font-bold text-foreground mb-4">Still have questions?</h2>
+          <p className="text-xl text-muted-foreground mb-8">Our team is here to help.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-purple-700 hover:to-purple-800 transition"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white font-semibold py-3 px-8 rounded-lg hover:from-primary hover:to-accent transition"
             >
               Contact support <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="mailto:support@employeezen.com"
-              className="inline-flex items-center gap-2 border border-gray-300 text-gray-900 font-semibold py-3 px-8 rounded-lg hover:bg-white transition"
+              className="inline-flex items-center gap-2 border border-border300 text-foreground font-semibold py-3 px-8 rounded-lg hover:bg-background transition"
             >
               Email us
             </a>

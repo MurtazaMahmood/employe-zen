@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, Lock, User, Building2, ArrowRight } from "lucide-react";
+import { Mail, Lock, User, Building2, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Sign up for Employee Zen" },
-      { name: "description", content: "Create your Employee Zen account. Start your free 14-day trial." },
+      { title: "Sign up for ByThawkHR" },
+      { name: "description", content: "Create your ByThawkHR account. Start your free 14-day trial." },
     ],
   }),
   component: Signup,
@@ -24,30 +24,27 @@ function Signup() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      // TODO: Implement actual signup
       window.location.href = "/dashboard";
     }, 1500);
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <div className="grid min-h-screen lg:grid-cols-2">
         {/* Left side - Image */}
-        <div className="hidden lg:flex items-center justify-center bg-gradient-to-br from-purple-50 to-purple-100 p-8">
+        <div className="hidden lg:flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/5 p-8">
           <div className="text-center max-w-md">
-            <div className="mb-6 inline-block p-6 bg-white rounded-3xl shadow-lg">
-              <svg className="h-16 w-16 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-              </svg>
+            <div className="mb-6 inline-block p-6 bg-card rounded-3xl shadow-lg">
+              <User className="h-16 w-16 text-primary" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Join thousands of companies</h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <h2 className="text-3xl font-bold text-foreground mb-4">Join thousands of companies</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Experience the all-in-one HR platform trusted by forward-thinking teams
             </p>
             <div className="mt-8 space-y-4">
               {["Try free for 14 days", "No credit card required", "Full feature access"].map((feature) => (
-                <div key={feature} className="flex items-center gap-3 justify-center text-gray-700">
-                  <div className="h-2 w-2 rounded-full bg-purple-600"></div>
+                <div key={feature} className="flex items-center gap-3 justify-center text-foreground">
+                  <Check className="h-5 w-5 text-primary" />
                   {feature}
                 </div>
               ))}
@@ -59,124 +56,124 @@ function Signup() {
         <div className="flex flex-col justify-between px-6 py-12 sm:px-8 lg:px-12">
           <div>
             <Link to="/" className="flex items-center gap-2.5 inline-block">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-purple-600 to-purple-700 text-white font-bold text-lg">
-                EZ
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-[image:var(--gradient-primary)] text-primary-foreground font-bold text-lg">
+                B
               </span>
-              <span className="text-xl font-bold tracking-tight text-gray-900">
-                Employee <span className="text-purple-600">Zen</span>
+              <span className="text-xl font-bold tracking-tight text-foreground">
+                ByThawk<span className="text-accent">HR</span>
               </span>
             </Link>
           </div>
 
           <div className="w-full max-w-sm">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Get started</h1>
-              <p className="text-gray-600">Create your account to access the full HR platform</p>
+              <h1 className="text-3xl font-bold text-foreground mb-2">Create your account</h1>
+              <p className="text-muted-foreground">Join your team on ByThawkHR</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Full name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                   <input
                     type="text"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="John Doe"
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition"
+                    className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition bg-background text-foreground placeholder-muted-foreground"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Company name
                 </label>
                 <div className="relative">
-                  <Building2 className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <Building2 className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                   <input
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Acme Inc"
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition"
+                    placeholder="Your company"
+                    className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition bg-background text-foreground placeholder-muted-foreground"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
-                  Work email
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Email address
                 </label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <Mail className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@company.com"
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition"
+                    placeholder="your@email.com"
+                    className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition bg-background text-foreground placeholder-muted-foreground"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-900 mb-2">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                  <Lock className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition"
+                    className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition bg-background text-foreground placeholder-muted-foreground"
                     required
                   />
                 </div>
               </div>
 
-              <div className="flex items-start gap-2 pt-2">
-                <input type="checkbox" id="terms" className="w-4 h-4 rounded border-gray-300 text-purple-600 mt-1" required />
-                <label htmlFor="terms" className="text-sm text-gray-600">
+              <label className="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" className="w-4 h-4 rounded border-border text-primary mt-1" required />
+                <span className="text-sm text-muted-foreground">
                   I agree to the{" "}
-                  <Link to="/terms" className="text-purple-600 hover:underline font-medium">
+                  <Link to="/terms" className="text-primary font-medium hover:text-primary/80">
                     Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link to="/privacy" className="text-purple-600 hover:underline font-medium">
+                  <Link to="/privacy" className="text-primary font-medium hover:text-primary/80">
                     Privacy Policy
                   </Link>
-                </label>
-              </div>
+                </span>
+              </label>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-2.5 rounded-lg hover:from-purple-700 hover:to-purple-800 transition disabled:opacity-70 flex items-center justify-center gap-2"
+                className="w-full bg-[image:var(--gradient-primary)] text-primary-foreground font-semibold py-2.5 rounded-lg hover:opacity-90 transition disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                {loading ? "Creating account..." : <>Create account <ArrowRight className="h-4 w-4" /></>}
+                {loading ? "Creating account..." : <>Get started <ArrowRight className="h-4 w-4" /></>}
               </button>
 
               <div className="relative py-2">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-300"></div>
+                  <div className="w-full border-t border-border"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-600">Or continue with</span>
+                  <span className="px-2 bg-background text-muted-foreground">Or sign up with</span>
                 </div>
               </div>
 
               <button
                 type="button"
-                className="w-full border border-gray-300 text-gray-700 font-medium py-2.5 rounded-lg hover:bg-gray-50 transition flex items-center justify-center gap-2"
+                className="w-full border border-border text-foreground font-medium py-2.5 rounded-lg hover:bg-secondary transition flex items-center justify-center gap-2"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24">
                   <path
@@ -200,16 +197,16 @@ function Signup() {
               </button>
             </form>
 
-            <p className="mt-6 text-center text-gray-600">
+            <p className="mt-6 text-center text-muted-foreground">
               Already have an account?{" "}
-              <Link to="/login" className="font-semibold text-purple-600 hover:text-purple-700">
+              <Link to="/login" className="font-semibold text-primary hover:text-primary/80 transition">
                 Sign in
               </Link>
             </p>
           </div>
 
-          <p className="text-xs text-gray-500">
-            No credit card required. Start your free 14-day trial today.
+          <p className="text-xs text-muted-foreground">
+            Starting your 14-day free trial. No credit card required.
           </p>
         </div>
       </div>

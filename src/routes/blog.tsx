@@ -86,7 +86,7 @@ function Blog() {
       icon: <BarChart3 className="h-6 w-6" />,
       title: "Reports & Analytics",
       description: "Data-driven insights for HR decision making",
-      color: "text-purple-600"
+      color: "text-primary"
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -97,23 +97,23 @@ function Blog() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-purple-50 to-white">
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/10 to-white">
         <div className="container-x">
-          <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">
             HR Tips, Insights & Resources
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mb-8">
+          <p className="text-xl text-muted-foreground max-w-2xl mb-8">
             Stay updated with the latest HR trends, best practices, and strategies for managing your workforce effectively.
           </p>
           <div className="flex gap-4">
             <input
               type="search"
               placeholder="Search articles..."
-              className="flex-1 max-w-md px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+              className="flex-1 max-w-md px-4 py-3 border border-border300 rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
-            <button className="px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-purple-800 transition">
+            <button className="px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:from-primary hover:to-accent transition">
               Search
             </button>
           </div>
@@ -124,8 +124,8 @@ function Blog() {
       {articles.length > 0 && (
         <section className="py-16 lg:py-24 bg-gray-50">
           <div className="container-x">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Article</h2>
-            <div className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition">
+            <h2 className="text-3xl font-bold text-foreground mb-8">Featured Article</h2>
+            <div className="bg-background rounded-xl overflow-hidden border border-border200 hover:shadow-lg transition">
               <div className="grid lg:grid-cols-2 gap-8">
                 <div className="h-96 overflow-hidden">
                   <img
@@ -136,13 +136,13 @@ function Blog() {
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <div className="inline-flex items-center gap-2 mb-4">
-                    <span className="text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
                       {articles[0].category}
                     </span>
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">{articles[0].title}</h3>
-                  <p className="text-gray-600 mb-6">{articles[0].excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                  <h3 className="text-3xl font-bold text-foreground mb-4">{articles[0].title}</h3>
+                  <p className="text-muted-foreground mb-6">{articles[0].excerpt}</p>
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
                     <span>{articles[0].author}</span>
                     <span>•</span>
                     <div className="flex items-center gap-1">
@@ -152,7 +152,7 @@ function Blog() {
                     <span>•</span>
                     <span>{articles[0].readTime}</span>
                   </div>
-                  <button className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:text-purple-700">
+                  <button className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80">
                     Read article <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -163,14 +163,14 @@ function Blog() {
       )}
 
       {/* Articles Grid */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-x">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Latest Articles</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-12">Latest Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.slice(1).map((article) => (
               <article
                 key={article.id}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition flex flex-col"
+                className="bg-background rounded-xl border border-border200 overflow-hidden hover:shadow-lg transition flex flex-col"
               >
                 <img
                   src={article.image}
@@ -178,12 +178,12 @@ function Blog() {
                   className="h-48 w-full object-cover"
                 />
                 <div className="p-6 flex flex-col flex-1">
-                  <span className="text-xs font-semibold text-purple-600 bg-purple-100 px-3 py-1 rounded-full w-fit mb-4">
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full w-fit mb-4">
                     {article.category}
                   </span>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 flex-1">{article.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{article.excerpt}</p>
-                  <div className="flex items-center justify-between text-xs text-gray-500 border-t border-gray-200 pt-4">
+                  <h3 className="text-lg font-bold text-foreground mb-3 flex-1">{article.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">{article.excerpt}</p>
+                  <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border200 pt-4">
                     <div className="flex items-center gap-2">
                       <span>{article.author}</span>
                       <span>•</span>
@@ -201,16 +201,16 @@ function Blog() {
       {/* Resources */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container-x">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Additional Resources</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-12">Additional Resources</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {resources.map((resource) => (
-              <div key={resource.title} className="bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition text-center">
+              <div key={resource.title} className="bg-background rounded-xl p-8 border border-border200 hover:shadow-lg transition text-center">
                 <div className={`h-12 w-12 rounded-lg flex items-center justify-center ${resource.color} bg-opacity-10 mx-auto mb-4`}>
                   <div className={resource.color}>{resource.icon}</div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{resource.title}</h3>
-                <p className="text-gray-600 mb-4">{resource.description}</p>
-                <button className="text-purple-600 font-semibold hover:text-purple-700 inline-flex items-center gap-2">
+                <h3 className="text-xl font-bold text-foreground mb-2">{resource.title}</h3>
+                <p className="text-muted-foreground mb-4">{resource.description}</p>
+                <button className="text-primary font-semibold hover:text-primary/80 inline-flex items-center gap-2">
                   Explore <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -220,9 +220,9 @@ function Blog() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container-x max-w-2xl">
-          <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl p-8 lg:p-12 text-white text-center">
+          <div className="bg-gradient-to-br from-primary to-accent rounded-2xl p-8 lg:p-12 text-white text-center">
             <h2 className="text-3xl font-bold mb-4">Get HR Insights Delivered</h2>
             <p className="text-white/90 mb-6">
               Subscribe to our newsletter for weekly tips, industry trends, and updates.
@@ -231,9 +231,9 @@ function Blog() {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-300"
+                className="flex-1 px-4 py-3 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-purple-300"
               />
-              <button className="px-6 py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+              <button className="px-6 py-3 bg-background text-primary rounded-lg font-semibold hover:bg-gray-100 transition">
                 Subscribe
               </button>
             </form>

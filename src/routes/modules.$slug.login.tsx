@@ -47,8 +47,8 @@ function ModuleLogin() {
         </div>
 
         <div className="relative">
-          <div className="inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur">
-            <div className="grid h-12 w-12 place-items-center rounded-xl bg-white/15">
+          <div className="inline-flex items-center gap-3 rounded-2xl border border-white/15 bg-background/10 p-3 backdrop-blur">
+            <div className="grid h-12 w-12 place-items-center rounded-xl bg-background/15">
               <mod.icon className="h-6 w-6" />
             </div>
             <div>

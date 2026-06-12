@@ -129,7 +129,7 @@ function Home() {
         <div className="absolute inset-0 grid-bg opacity-10" />
         <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <span className="eyebrow !border-white/15 !bg-white/5 !text-white/80">App Hub model</span>
+            <span className="eyebrow !border-white/15 !bg-background/5 !text-white/80">App Hub model</span>
             <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
               One login. Only the apps your team actually uses.
             </h2>
@@ -152,7 +152,7 @@ function Home() {
             {featured.map((m, i) => (
               <div
                 key={m.slug}
-                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur transition-all hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.08]"
+                className="group rounded-2xl border border-white/10 bg-background/[0.04] p-5 backdrop-blur transition-all hover:-translate-y-1 hover:border-white/25 hover:bg-background/[0.08]"
                 style={{ animationDelay: `${i * 60}ms` }}
               >
                 <div className="grid h-10 w-10 place-items-center rounded-xl bg-[image:var(--gradient-accent)] text-accent-foreground">
@@ -234,7 +234,7 @@ function Home() {
               <Link to="/signup" className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.984_0.012_85)] px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90">
                 Start free trial <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold transition hover:bg-white/10">
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold transition hover:bg-background/10">
                 Contact us
               </Link>
             </div>

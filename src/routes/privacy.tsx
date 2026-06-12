@@ -13,20 +13,20 @@ export const Route = createFileRoute("/privacy")({
 
 function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <div className="container-x py-16 lg:py-24">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-          <Link to="/" className="hover:text-purple-600">Home</Link>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+          <Link to="/" className="hover:text-primary transition">Home</Link>
           <ChevronRight className="h-4 w-4" />
-          <span className="text-gray-900">Privacy Policy</span>
+          <span className="text-foreground">Privacy Policy</span>
         </div>
 
         <div className="max-w-3xl">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-          <p className="text-gray-600 mb-12">Last updated: June 2024</p>
+          <h1 className="text-4xl font-bold text-foreground mb-4">Privacy Policy</h1>
+          <p className="text-muted-foreground mb-12">Last updated: June 2024</p>
 
-          <div className="prose prose-lg max-w-none text-gray-700 space-y-8">
+          <div className="prose prose-lg max-w-none text-muted-foreground space-y-8">
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Introduction</h2>
               <p>
