@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Mail, Lock, User, Building2, ArrowRight, Check } from "lucide-react";
+import { Mail, Lock, User, Building2, ArrowRight, Check, Zap, Users, BarChart3, Rocket } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
       { title: "Sign up for ByThawkHR" },
-      { name: "description", content: "Create your ByThawkHR account. Start your free 14-day trial." },
+      { name: "description", content: "Create your ByThawkHR account. Start your free 14-day trial with no credit card required." },
     ],
   }),
   component: Signup,
@@ -31,23 +31,80 @@ function Signup() {
   return (
     <div className="min-h-screen bg-background">
       <div className="grid min-h-screen lg:grid-cols-2">
-        {/* Left side - Image */}
-        <div className="hidden lg:flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/5 p-8">
-          <div className="text-center max-w-md">
-            <div className="mb-6 inline-block p-6 bg-card rounded-3xl shadow-lg">
-              <User className="h-16 w-16 text-primary" />
-            </div>
-            <h2 className="text-3xl font-bold text-foreground mb-4">Join thousands of companies</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Experience the all-in-one HR platform trusted by forward-thinking teams
+        {/* Left side - Hero Section */}
+        <div className="hidden lg:flex flex-col justify-center px-12 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+          <div className="absolute inset-0 -z-10 opacity-30">
+            <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary/20 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-accent/20 blur-3xl" />
+          </div>
+
+          <div>
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              Start Your HR Transformation
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Join thousands of forward-thinking companies using ByThawkHR to streamline their workforce management across 21 integrated modules.
             </p>
-            <div className="mt-8 space-y-4">
-              {["Try free for 14 days", "No credit card required", "Full feature access"].map((feature) => (
-                <div key={feature} className="flex items-center gap-3 justify-center text-foreground">
-                  <Check className="h-5 w-5 text-primary" />
-                  {feature}
+
+            <div className="space-y-4 mb-12">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-primary/20 text-primary">
+                    <Check className="h-4 w-4" />
+                  </div>
                 </div>
-              ))}
+                <div>
+                  <h3 className="font-semibold text-foreground">14 Days Free Trial</h3>
+                  <p className="text-sm text-muted-foreground">Full access to all modules, no credit card needed</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-primary/20 text-primary">
+                    <Check className="h-4 w-4" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Instant Setup</h3>
+                  <p className="text-sm text-muted-foreground">Activate modules and invite your team in minutes</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-primary/20 text-primary">
+                    <Check className="h-4 w-4" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Multi-Tenant Architecture</h3>
+                  <p className="text-sm text-muted-foreground">Secure, isolated data for your entire organization</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-primary/20 text-primary">
+                    <Check className="h-4 w-4" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Mobile-First Design</h3>
+                  <p className="text-sm text-muted-foreground">Full-featured iOS & Android apps included</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 pt-8 border-t border-border/50">
+              <div>
+                <div className="text-3xl font-bold text-primary">5-200</div>
+                <p className="text-xs text-muted-foreground mt-1">Employee teams</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-primary">83.9%</div>
+                <p className="text-xs text-muted-foreground mt-1">Gross margin</p>
+              </div>
             </div>
           </div>
         </div>
@@ -67,8 +124,8 @@ function Signup() {
 
           <div className="w-full max-w-sm">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-foreground mb-2">Create your account</h1>
-              <p className="text-muted-foreground">Join your team on ByThawkHR</p>
+              <h1 className="text-3xl font-bold text-foreground mb-2">Get started free</h1>
+              <p className="text-muted-foreground">14 days of unlimited access to all 21 HR modules</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -99,7 +156,7 @@ function Signup() {
                     type="text"
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
-                    placeholder="Your company"
+                    placeholder="Your Company Inc."
                     className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition bg-background text-foreground placeholder-muted-foreground"
                     required
                   />
@@ -108,7 +165,7 @@ function Signup() {
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Email address
+                  Work email
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
@@ -116,7 +173,7 @@ function Signup() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
+                    placeholder="you@company.com"
                     className="w-full pl-10 pr-4 py-2.5 border border-border rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition bg-background text-foreground placeholder-muted-foreground"
                     required
                   />
@@ -140,74 +197,36 @@ function Signup() {
                 </div>
               </div>
 
-              <label className="flex items-start gap-2 cursor-pointer">
+              <div className="flex items-start gap-2 pt-2">
                 <input type="checkbox" className="w-4 h-4 rounded border-border text-primary mt-1" required />
                 <span className="text-sm text-muted-foreground">
-                  I agree to the{" "}
-                  <Link to="/terms" className="text-primary font-medium hover:text-primary/80">
-                    Terms of Service
-                  </Link>{" "}
-                  and{" "}
-                  <Link to="/privacy" className="text-primary font-medium hover:text-primary/80">
-                    Privacy Policy
-                  </Link>
+                  I agree to the <Link to="/terms" className="text-primary hover:text-primary/80">Terms of Service</Link> and <Link to="/privacy" className="text-primary hover:text-primary/80">Privacy Policy</Link>
                 </span>
-              </label>
+              </div>
 
               <button
                 type="submit"
                 disabled={loading}
                 className="w-full bg-[image:var(--gradient-primary)] text-primary-foreground font-semibold py-2.5 rounded-lg hover:opacity-90 transition disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                {loading ? "Creating account..." : <>Get started <ArrowRight className="h-4 w-4" /></>}
+                {loading ? "Creating account..." : <>Start free trial <Rocket className="h-4 w-4" /></>}
               </button>
 
-              <div className="relative py-2">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-border"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-background text-muted-foreground">Or sign up with</span>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className="w-full border border-border text-foreground font-medium py-2.5 rounded-lg hover:bg-secondary transition flex items-center justify-center gap-2"
-              >
-                <svg className="h-5 w-5" viewBox="0 0 24 24">
-                  <path
-                    fill="currentColor"
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                  />
-                </svg>
-                Sign up with Google
-              </button>
+              <p className="text-center text-sm text-muted-foreground">
+                Already have an account? <Link to="/login" className="text-primary font-medium hover:text-primary/80">Sign in here</Link>
+              </p>
             </form>
 
-            <p className="mt-6 text-center text-muted-foreground">
-              Already have an account?{" "}
-              <Link to="/login" className="font-semibold text-primary hover:text-primary/80 transition">
-                Sign in
-              </Link>
-            </p>
+            <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+              <p className="text-xs text-muted-foreground">
+                <strong className="text-foreground">No credit card required.</strong> Get instant access to all modules. Cancel anytime.
+              </p>
+            </div>
           </div>
 
-          <p className="text-xs text-muted-foreground">
-            Starting your 14-day free trial. No credit card required.
-          </p>
+          <div className="text-xs text-muted-foreground">
+            <p>Secure • Enterprise-Grade • GDPR Compliant</p>
+          </div>
         </div>
       </div>
     </div>
