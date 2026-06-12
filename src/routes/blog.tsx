@@ -125,13 +125,16 @@ function Blog() {
         <section className="py-16 lg:py-24 bg-gray-50">
           <div className="container-x">
             <h2 className="text-3xl font-bold text-foreground mb-8">Featured Article</h2>
-            <div className="bg-background rounded-xl overflow-hidden border border-border200 hover:shadow-lg transition">
-              <div className="grid lg:grid-cols-2 gap-8">
-                <div className="h-96 overflow-hidden">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-background backdrop-blur-md transition-all duration-300 hover:shadow-2xl hover:border-primary/20">
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-10 pointer-events-none" />
+              
+              <div className="grid lg:grid-cols-2 gap-8 relative z-20">
+                <div className="h-96 overflow-hidden rounded-2xl">
                   <img
                     src={articles[0].image}
                     alt={articles[0].title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
@@ -166,30 +169,36 @@ function Blog() {
       <section className="py-16 lg:py-24 bg-background">
         <div className="container-x">
           <h2 className="text-3xl font-bold text-foreground mb-12">Latest Articles</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.slice(1).map((article) => (
               <article
                 key={article.id}
-                className="bg-background rounded-xl border border-border200 overflow-hidden hover:shadow-lg transition flex flex-col"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-background backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 flex flex-col"
               >
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="h-48 w-full object-cover"
-                />
-                <div className="p-6 flex flex-col flex-1">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full w-fit mb-4">
+                {/* Gradient overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none z-10" />
+                
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+                <div className="relative p-6 flex flex-col flex-1">
+                  <span className="text-xs font-semibold text-primary bg-gradient-to-r from-primary/15 to-accent/10 px-3 py-1.5 rounded-full w-fit mb-4 border border-primary/20">
                     {article.category}
                   </span>
-                  <h3 className="text-lg font-bold text-foreground mb-3 flex-1">{article.title}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{article.excerpt}</p>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border200 pt-4">
+                  <h3 className="text-lg font-bold text-foreground mb-3 flex-1 leading-snug group-hover:text-primary transition-colors">{article.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-6 line-clamp-2">{article.excerpt}</p>
+                  <div className="flex items-center justify-between text-xs text-muted-foreground border-t border-border/50 pt-4">
                     <div className="flex items-center gap-2">
-                      <span>{article.author}</span>
-                      <span>•</span>
+                      <span className="font-medium">{article.author}</span>
+                      <span className="text-border">•</span>
                       <span>{article.date}</span>
                     </div>
-                    <span>{article.readTime}</span>
+                    <span className="text-primary/70 font-medium">{article.readTime}</span>
                   </div>
                 </div>
               </article>
@@ -202,17 +211,22 @@ function Blog() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container-x">
           <h2 className="text-3xl font-bold text-foreground mb-12">Additional Resources</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {resources.map((resource) => (
-              <div key={resource.title} className="bg-background rounded-xl p-8 border border-border200 hover:shadow-lg transition text-center">
-                <div className={`h-12 w-12 rounded-lg flex items-center justify-center ${resource.color} bg-opacity-10 mx-auto mb-4`}>
-                  <div className={resource.color}>{resource.icon}</div>
+              <div key={resource.title} className="group relative overflow-hidden rounded-2xl bg-background border border-border backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 p-8 text-center">
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                
+                <div className="relative">
+                  <div className={`h-14 w-14 rounded-xl flex items-center justify-center ${resource.color} bg-opacity-15 mx-auto mb-6 transition-transform duration-300 group-hover:scale-110`}>
+                    <div className={resource.color}>{resource.icon}</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{resource.title}</h3>
+                  <p className="text-muted-foreground mb-6">{resource.description}</p>
+                  <button className="text-primary font-semibold hover:text-primary/80 inline-flex items-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1">
+                    Explore <ArrowRight className="h-4 w-4" />
+                  </button>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{resource.title}</h3>
-                <p className="text-muted-foreground mb-4">{resource.description}</p>
-                <button className="text-primary font-semibold hover:text-primary/80 inline-flex items-center gap-2">
-                  Explore <ArrowRight className="h-4 w-4" />
-                </button>
               </div>
             ))}
           </div>

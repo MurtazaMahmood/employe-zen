@@ -152,10 +152,15 @@ function Dashboard() {
         {/* Quick Stats */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {quickStats.map((stat) => (
-            <div key={stat.label} className="bg-background rounded-lg p-6 border border-border200">
-              <p className="text-muted-foreground text-sm font-medium mb-1">{stat.label}</p>
-              <p className="text-3xl font-bold text-foreground mb-2">{stat.value}</p>
-              <p className="text-sm text-muted-foreground">{stat.change}</p>
+            <div key={stat.label} className="group relative overflow-hidden rounded-2xl bg-background border border-border backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/20 p-6">
+              {/* Gradient background on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              
+              <div className="relative">
+                <p className="text-muted-foreground text-sm font-medium mb-3">{stat.label}</p>
+                <p className="text-4xl font-bold text-foreground mb-3">{stat.value}</p>
+                <p className="text-sm text-primary/80 font-medium">{stat.change}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -168,16 +173,21 @@ function Dashboard() {
               <Link
                 key={module.slug}
                 to={`/modules/${module.slug}`}
-                className="group bg-background rounded-xl p-8 border border-border200 hover:shadow-lg hover:border-purple-200 transition"
+                className="group relative overflow-hidden rounded-2xl bg-background border border-border backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 p-8"
               >
-                <div className={`h-12 w-12 rounded-lg ${module.bgColor} flex items-center justify-center ${module.color} mb-4`}>
-                  {module.icon}
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-1">{module.name}</h3>
-                <p className="text-sm text-muted-foreground mb-4">{module.stats}</p>
-                <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition">
-                  Open module
-                  <span>→</span>
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                
+                <div className="relative">
+                  <div className={`h-14 w-14 rounded-xl ${module.bgColor} flex items-center justify-center ${module.color} mb-6 transition-transform duration-300 group-hover:scale-110`}>
+                    {module.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{module.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-6">{module.stats}</p>
+                  <div className="inline-flex items-center gap-2 text-primary font-semibold text-sm opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                    Open module
+                    <span>→</span>
+                  </div>
                 </div>
               </Link>
             ))}
