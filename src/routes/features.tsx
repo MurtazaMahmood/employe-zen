@@ -83,14 +83,19 @@ function Features() {
             Powerful capabilities built-in from day one, with no additional plugins required.
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {coreFeatures.map((feature) => (
-              <div key={feature.title} className="border border-border200 rounded-xl p-8 hover:shadow-lg transition">
-                <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center mb-6">
-                  <feature.icon className="h-6 w-6 text-primary" />
+              <div key={feature.title} className="group relative overflow-hidden rounded-2xl border border-border bg-background backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 p-8">
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                
+                <div className="relative">
+                  <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:from-primary/25">
+                    <feature.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
               </div>
             ))}
           </div>
