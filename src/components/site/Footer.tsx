@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface">
       <div className="container-x py-16">
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-5">
           <div>
             <div className="flex items-center gap-2.5">
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground font-bold">B</span>
@@ -27,10 +27,18 @@ export function Footer() {
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               <li><Link to="/about" className="hover:text-foreground">About</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
-              <li><Link to="/contact" className="hover:text-foreground">Careers</Link></li>
+              <li><Link to="/faq" className="hover:text-foreground">FAQ</Link></li>
             </ul>
           </div>
           <div>
+            <h4 className="text-sm font-semibold">Legal</h4>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-foreground">Terms of Service</Link></li>
+              <li><Link to="/contact" className="hover:text-foreground">Status</Link></li>
+            </ul>
+          </div>
+          <div className="md:col-span-1">
             <h4 className="text-sm font-semibold">Stay in the loop</h4>
             <form className="mt-4 flex gap-2">
               <input type="email" placeholder="you@work.com" className="w-full rounded-full border border-border bg-surface-elevated px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-ring/40" />

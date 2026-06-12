@@ -1,0 +1,163 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Check, ArrowRight, Zap, Shield, BarChart3, Users, Clock, Smartphone } from "lucide-react";
+
+export const Route = createFileRoute("/features")({
+  head: () => ({
+    meta: [
+      { title: "Features - Employee Zen" },
+      { name: "description", content: "Discover all the powerful features of Employee Zen HR platform." },
+    ],
+  }),
+  component: Features,
+});
+
+function Features() {
+  const coreFeatures = [
+    {
+      icon: Users,
+      title: "Employee Management",
+      description: "Centralized directory with detailed profiles, org charts, and document management."
+    },
+    {
+      icon: Clock,
+      title: "Attendance Tracking",
+      description: "Clock-in/out with geofencing, overtime calculation, and offline-first mobile app."
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics & Reporting",
+      description: "Real-time dashboards, drill-down reports, and exportable data in Excel/CSV."
+    },
+    {
+      icon: Zap,
+      title: "Workflow Automation",
+      description: "Automated approvals, multi-level workflows, and real-time notifications."
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security",
+      description: "Role-based access control, data encryption, and complete audit trails."
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Ready",
+      description: "Native mobile app with offline support for all critical functions."
+    },
+  ];
+
+  const benefits = [
+    "Reduce HR overhead by 40%",
+    "Increase employee satisfaction scores",
+    "Streamline payroll processing",
+    "Real-time compliance tracking",
+    "Unified communication platform",
+    "Customizable workflows",
+    "Multi-language support",
+    "SSO & SCIM integration",
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="py-16 lg:py-24 bg-gradient-to-br from-purple-50 to-white">
+        <div className="container-x">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              Everything you need to manage your workforce
+            </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              Employee Zen brings together all your HR tools into one unified platform with powerful features designed for modern teams.
+            </p>
+            <Link to="/login" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-semibold py-3 px-8 rounded-lg hover:from-purple-700 hover:to-purple-800 transition">
+              Start free trial <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Features Grid */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="container-x">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Core Features</h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl">
+            Powerful capabilities built-in from day one, with no additional plugins required.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreFeatures.map((feature) => (
+              <div key={feature.title} className="border border-gray-200 rounded-xl p-8 hover:shadow-lg transition">
+                <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center mb-6">
+                  <feature.icon className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Key Benefits */}
+      <section className="py-16 lg:py-24 bg-gray-50">
+        <div className="container-x">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-12">Why Teams Love Employee Zen</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">Key Benefits</h3>
+              <div className="space-y-4">
+                {benefits.slice(0, 4).map((benefit) => (
+                  <div key={benefit} className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">More Capabilities</h3>
+              <div className="space-y-4">
+                {benefits.slice(4).map((benefit) => (
+                  <div key={benefit} className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-purple-600 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-8 lg:p-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Integration Ready</h3>
+            <p className="text-gray-600 mb-6">
+              Employee Zen integrates seamlessly with your existing tools. Connect payroll systems, HRIS platforms, and custom applications through our REST API and webhooks.
+            </p>
+            <Link to="/contact" className="text-purple-600 font-semibold hover:text-purple-700 inline-flex items-center gap-2">
+              Learn about integrations <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="container-x">
+          <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-2xl p-12 lg:p-16 text-white text-center">
+            <h2 className="text-4xl font-bold mb-4">Ready to streamline your HR?</h2>
+            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+              Get started with a free 14-day trial. No credit card required. All features included.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link to="/login" className="inline-flex items-center gap-2 bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition">
+                Start free trial <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/contact" className="inline-flex items-center gap-2 border border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white/10 transition">
+                Schedule a demo
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

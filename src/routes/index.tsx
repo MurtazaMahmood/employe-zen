@@ -37,10 +37,10 @@ function Home() {
               Built for the web, perfected on mobile.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/contact" className="btn-primary">
-                Book a demo <ArrowRight className="h-4 w-4" />
+              <Link to="/signup" className="btn-primary">
+                Start free trial <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/modules" className="btn-ghost">Explore all 21 modules</Link>
+              <Link to="/features" className="btn-ghost">Explore features</Link>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
               {["No credit card", "14-day trial", "Cancel anytime"].map((t) => (
@@ -231,11 +231,11 @@ function Home() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.984_0.012_85)] px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90">
-                Book a demo <ArrowRight className="h-4 w-4" />
+              <Link to="/signup" className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.984_0.012_85)] px-6 py-3 text-sm font-semibold text-foreground transition hover:opacity-90">
+                Start free trial <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/pricing" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold transition hover:bg-white/10">
-                See pricing
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold transition hover:bg-white/10">
+                Contact us
               </Link>
             </div>
           </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const nav = [
   { to: "/", label: "Home" },
+  { to: "/features", label: "Features" },
   { to: "/modules", label: "Modules" },
   { to: "/pricing", label: "Pricing" },
   { to: "/about", label: "About" },
@@ -37,8 +38,8 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
-          <Link to="/contact" className="btn-ghost !py-2 !text-sm">Sign in</Link>
-          <Link to="/contact" className="btn-primary !py-2 !text-sm">Book demo</Link>
+          <Link to="/login" className="btn-ghost !py-2 !text-sm">Sign in</Link>
+          <Link to="/signup" className="btn-primary !py-2 !text-sm">Get started</Link>
         </div>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="menu">
           {open ? <X /> : <Menu />}
@@ -57,7 +58,8 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
-            <Link to="/contact" className="btn-primary mt-2 !text-sm">Book demo</Link>
+            <Link to="/login" className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground w-full text-center">Sign in</Link>
+            <Link to="/signup" className="btn-primary mt-2 !text-sm">Get started</Link>
           </div>
         </div>
       )}
