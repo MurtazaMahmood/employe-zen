@@ -65,14 +65,14 @@ function ModulesPage() {
                   <m.icon className="h-5 w-5" />
                 </div>
                 <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                  Phase {m.phase}
+                  {m.category}
                 </span>
               </div>
               <h3 className="mt-5 text-lg font-bold tracking-tight">{m.name}</h3>
               <p className="mt-1 text-sm font-medium" style={{ color: m.accentHex }}>{m.tagline}</p>
               <p className="mt-3 flex-1 text-sm text-muted-foreground">{m.description}</p>
               <div className="mt-5 flex items-center justify-between">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{m.category}</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{m.description.split(" ").slice(0, 2).join(" ")}</p>
                 <span className="inline-flex items-center gap-1 text-xs font-semibold text-foreground opacity-0 transition-opacity group-hover:opacity-100">
                   Explore <ArrowRight className="h-3.5 w-3.5" />
                 </span>
